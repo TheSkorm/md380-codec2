@@ -1,0 +1,1 @@
+arm-none-eabi-gcc  -Wall -g -O3 -fPIC  -Wall -g -O3 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/horus_demod.dir/horus_demod.c.o CMakeFiles/horus_demod.dir/horus_api.c.o CMakeFiles/horus_demod.dir/horus_l2.c.o CMakeFiles/horus_demod.dir/fsk.c.o CMakeFiles/horus_demod.dir/kiss_fft.c.o  -o horus_demod -lm 

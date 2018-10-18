@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/H2064_516_sparse.h
+
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/comp.h
+
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/drs232_ldpc.c
+assert.h
+-
+stdlib.h
+-
+errno.h
+-
+stdio.h
+-
+string.h
+-
+stdint.h
+-
+mpdecode_core.h
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/mpdecode_core.h
+H2064_516_sparse.h
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/H2064_516_sparse.h
+
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/mpdecode_core.h
+comp.h
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/comp.h
+

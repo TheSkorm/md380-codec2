@@ -29,7 +29,7 @@
    probable want this instead of AMBECORRECTEDPRINT or
    AMBEUNCORRECTEDPRINT below.
 */
-//#define AMBEPRINT
+#define AMBEPRINT
 
 /* This one prints all incoming audio as WAV.  Very verbose, but it
    allows for nice clean recordings of DMR audio.

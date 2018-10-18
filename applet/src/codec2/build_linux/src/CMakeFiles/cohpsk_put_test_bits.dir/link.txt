@@ -1,0 +1,1 @@
+arm-none-eabi-gcc  -Wall -g -O3 -fPIC  -Wall -g -O3 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/cohpsk_put_test_bits.dir/cohpsk_put_test_bits.c.o CMakeFiles/cohpsk_put_test_bits.dir/octave.c.o  -o cohpsk_put_test_bits -lm libcodec2.0.8.dylib -lm 

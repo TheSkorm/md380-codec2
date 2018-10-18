@@ -1,0 +1,1 @@
+arm-none-eabi-gcc  -Wall -g -O3 -fPIC  -Wall -g -O3 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/cohpsk_ch.dir/cohpsk_ch.c.o  -o cohpsk_ch -lm libcodec2.0.8.dylib -lm 

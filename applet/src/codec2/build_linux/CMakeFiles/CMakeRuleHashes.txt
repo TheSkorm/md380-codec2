@@ -1,0 +1,9 @@
+# Hashes of file build rules.
+66927472c7013f307145af1f43c4c8d4 src/codebook.c
+9f639a6dca17b89b09fc674e233f9e16 src/codebookd.c
+0a89ad284c26638ae92e808b8eff6323 src/codebookge.c
+7db2b35e0001b92ab34418cda2551f50 src/codebookjvm.c
+e771dfd9ff83bb26451aa47a2a665b07 src/codebooklspmelvq.c
+572a87cca3f3552c35e2fa4167245681 src/codebookmel.c
+f59977244174a1a982629684628a1195 src/codebooknewamp1.c
+16dfcbbd313b6d25990bba9362b2d092 src/codebooknewamp1_energy.c

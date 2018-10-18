@@ -1,0 +1,1 @@
+arm-none-eabi-gcc  -Wall -g -O3 -fPIC  -Wall -g -O3 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/vhf_deframe_c2.dir/vhf_deframe_c2.c.o  -o vhf_deframe_c2 -lm libcodec2.0.8.dylib -lm 

@@ -1,0 +1,1 @@
+arm-none-eabi-gcc  -Wall -g -O3 -fPIC  -Wall -g -O3 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/fm_demod.dir/fm_demod.c.o CMakeFiles/fm_demod.dir/fm.c.o  -o fm_demod -lm 

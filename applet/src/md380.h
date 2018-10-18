@@ -8,13 +8,13 @@
 #include "config.h"
 #include "os.h"
 #include "peripherals/stm32f4xx_rtc.h"
-
+#include "codec2/src/codec2.h"
 
 //Move these to their own module.
 void strhex(char *, long);
 void wstrhex(wchar_t *, long);
 
-
+struct CODEC2 *c2;
 
 
 // md380 dmr

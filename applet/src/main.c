@@ -28,6 +28,7 @@
 #include "spiflash.h"
 #include "irq_handlers.h" 
 
+struct CODEC2 *c2;
 						  
 GPIO_InitTypeDef  GPIO_InitStructure;
 
@@ -182,6 +183,7 @@ int main(void) {
      
   //Done with the blinking, so start the radio application.
   printf("Starting main()\n");
+  c2 = codec2_create(CODEC2_MODE_2400);
   abort_to_mfgr_app();
 }
 

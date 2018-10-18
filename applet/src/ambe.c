@@ -15,7 +15,7 @@
 #include "tooldfu.h"
 #include "config.h"
 #include "gfx.h"
-
+#include "codec2/src/codec2.h"
 
 int max_level;
 uint32_t ambe_encode_frame_cnt;
@@ -37,8 +37,16 @@ int ambe_encode_thing_hook(char *a1, int a2, int *a3, int a4,
      
   max_level=max;
   ambe_encode_frame_cnt++;
-  return ambe_encode_thing(a1,a2,a3,a4,
+  int temp_code = ambe_encode_thing(a1,a2,a3,a4,
 			   a5,a6,a7,a8);
+  
+  uint8_t bits[8]; // big enough for any C2 encoded frame
+  // printf("1");
+  // c2 = codec2_create(CODEC2_MODE_2400);
+  // printf("");
+	codec2_encode(c2, bits, &a3);
+
+  return temp_code;
 #else
   return 0xdeadbeef;
 #endif

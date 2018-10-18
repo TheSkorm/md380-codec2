@@ -1,0 +1,1 @@
+arm-none-eabi-gcc  -Wall -g -O3 -fPIC  -Wall -g -O3 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/ofdm_get_test_bits.dir/ofdm_get_test_bits.c.o  -o ofdm_get_test_bits -lm libcodec2.0.8.dylib -lm 

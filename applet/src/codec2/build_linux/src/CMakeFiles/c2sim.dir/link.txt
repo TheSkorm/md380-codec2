@@ -1,0 +1,1 @@
+arm-none-eabi-gcc  -Wall -g -O3 -fPIC  -Wall -g -O3 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/c2sim.dir/c2sim.c.o  -o c2sim -lm libcodec2.0.8.dylib -lm 

@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/codec2.h
+codec2/version.h
+-
+
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/comp.h
+
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/freedv_api.h
+sys/types.h
+-
+comp.h
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/comp.h
+
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/freedv_tx.c
+assert.h
+-
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+errno.h
+-
+freedv_api.h
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/freedv_api.h
+codec2.h
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/codec2.h
+
+codec2/version.h
+

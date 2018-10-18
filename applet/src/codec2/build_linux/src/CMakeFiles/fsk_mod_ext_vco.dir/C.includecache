@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/fsk_mod_ext_vco.c
+assert.h
+-
+math.h
+-
+stdio.h
+-
+stdlib.h
+-
+stdint.h
+-
+string.h
+-
+

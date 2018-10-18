@@ -1,0 +1,1 @@
+arm-none-eabi-gcc  -Wall -g -O3 -fPIC  -Wall -g -O3 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/fmfsk_demod.dir/fmfsk_demod.c.o CMakeFiles/fmfsk_demod.dir/modem_probe.c.o CMakeFiles/fmfsk_demod.dir/octave.c.o  -o fmfsk_demod -lm libcodec2.0.8.dylib -lm 

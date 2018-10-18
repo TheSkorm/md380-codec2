@@ -66,6 +66,23 @@ SRCS += amenu_set_tg.o
 SRCS += amenu_channels.o
 SRCS += amenu_codeplug.o
 SRCS += timer.o
+SRCS += codec2/src/lpc.c 
+SRCS += codec2/src/nlp.c 
+SRCS += codec2/src/postfilter.c 
+SRCS += codec2/src/sine.c 
+SRCS += codec2/src/codec2.c 
+SRCS += codec2/src/codec2_fft.c 
+SRCS += codec2/src/kiss_fft.c 
+SRCS += codec2/src/kiss_fftr.c 
+SRCS += codec2/src/interp.c 
+SRCS += codec2/src/lsp.c 
+SRCS += codec2/src/phase.c 
+SRCS += codec2/src/quantise.c 
+SRCS += codec2/src/pack.c 
+SRCS += codec2/src/codebook.c 
+SRCS += codec2/src/codebookd.c 
+SRCS += codec2/src/codebookjvm.c 
+SRCS += codec2/src/codebookge.c 
 
 ifdef INC_DISPFLIP
 SRCS +=  dispflip.o  # display flip is included @ d13.020
@@ -88,8 +105,8 @@ GIT_VERSION := $(shell git describe --dirty --always --tags)
 LINKSCRIPT=applet_$(SRCVERSION).ld
 
 CFLAGS += -std=gnu99 -g -O2 -Wall -T$(LINKSCRIPT)
-CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork
-CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
+CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -D CORTEX_M4
+CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nano.specs -specs=nosys.specs --specs=rdimon.specs
 CFLAGS += -fshort-wchar
 ifdef MKLISTING
 CFLAGS += -Wa,-a=$(@:.o=.lst)
@@ -103,7 +120,10 @@ vpath %.a lib
 
 ROOT=$(shell pwd)
 
-CFLAGS += -Iinc -Ilib -Ilib/inc -I.
+CODEC2_SRC       = ./src/codec2/src
+
+
+CFLAGS += -Iinc -Ilib -Ilib/inc -I. -I -I./src/codec2/src/
 CFLAGS += -Ilib/inc/core -Ilib/inc/peripherals
 CFLAGS += -D "MD380_$(subst .,_,$(SRCVERSION))"  # ISO C99 requires whitespace after
 

@@ -1,0 +1,1 @@
+arm-none-eabi-gcc  -Wall -g -O3 -fPIC  -Wall -g -O3 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/drs232_ldpc.dir/drs232_ldpc.c.o  -o drs232_ldpc -lm libcodec2.0.8.dylib -lm 

@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/mwheeler/Documents/md380tools/applet/src/codec2/src/drs232.c
+assert.h
+-
+stdlib.h
+-
+errno.h
+-
+stdio.h
+-
+string.h
+-
+stdint.h
+-
+

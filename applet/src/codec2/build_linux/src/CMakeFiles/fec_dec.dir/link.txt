@@ -1,0 +1,1 @@
+arm-none-eabi-gcc  -Wall -g -O3 -fPIC  -Wall -g -O3 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/fec_dec.dir/fec_dec.c.o CMakeFiles/fec_dec.dir/golay23.c.o  -o fec_dec -lm libcodec2.0.8.dylib -lm 
