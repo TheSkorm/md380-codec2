@@ -132,10 +132,11 @@ struct CODEC2 * codec2_create(int mode)
     if (c2->w == NULL) {
 	return NULL;
     }
-    // c2->Sn = (float*)malloc(m_pitch*sizeof(float));
-    // if (c2->Sn == NULL) {
-	// return NULL;
-    // }
+    // crashes here
+    c2->Sn = (float*)malloc(m_pitch*sizeof(float));
+    if (c2->Sn == NULL) {
+	return NULL;
+    }
 
 //     for(i=0; i<m_pitch; i++)
 // 	c2->Sn[i] = 1.0;
