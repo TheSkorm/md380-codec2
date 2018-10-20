@@ -39,7 +39,7 @@ int ambe_encode_thing_hook(char *a1, int a2, int *a3, int a4,
   ambe_encode_frame_cnt++;
   int temp_code = ambe_encode_thing(a1,a2,a3,a4,
 			   a5,a6,a7,a8);
-  
+
   uint8_t bits[8]; // big enough for any C2 encoded frame
   // printf("1");
   // c2 = codec2_create(CODEC2_MODE_2400);

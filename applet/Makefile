@@ -66,23 +66,23 @@ SRCS += amenu_set_tg.o
 SRCS += amenu_channels.o
 SRCS += amenu_codeplug.o
 SRCS += timer.o
-SRCS += codec2/src/lpc.c 
-SRCS += codec2/src/nlp.c 
-SRCS += codec2/src/postfilter.c 
-SRCS += codec2/src/sine.c 
-SRCS += codec2/src/codec2.c 
-SRCS += codec2/src/codec2_fft.c 
-SRCS += codec2/src/kiss_fft.c 
-SRCS += codec2/src/kiss_fftr.c 
-SRCS += codec2/src/interp.c 
-SRCS += codec2/src/lsp.c 
-SRCS += codec2/src/phase.c 
-SRCS += codec2/src/quantise.c 
-SRCS += codec2/src/pack.c 
-SRCS += codec2/src/codebook.c 
-SRCS += codec2/src/codebookd.c 
-SRCS += codec2/src/codebookjvm.c 
-SRCS += codec2/src/codebookge.c 
+SRCS += codec2/src/lpc.o 
+SRCS += codec2/src/nlp.o 
+SRCS += codec2/src/postfilter.o 
+SRCS += codec2/src/sine.o 
+SRCS += codec2/src/codec2.o 
+SRCS += codec2/src/codec2_fft.o 
+SRCS += codec2/src/kiss_fft.o 
+SRCS += codec2/src/kiss_fftr.o 
+SRCS += codec2/src/interp.o 
+SRCS += codec2/src/lsp.o 
+SRCS += codec2/src/phase.o 
+SRCS += codec2/src/quantise.o 
+SRCS += codec2/src/pack.o 
+SRCS += codec2/src/codebook.o 
+SRCS += codec2/src/codebookd.o 
+SRCS += codec2/src/codebookjvm.o 
+SRCS += codec2/src/codebookge.o 
 
 ifdef INC_DISPFLIP
 SRCS +=  dispflip.o  # display flip is included @ d13.020
@@ -116,6 +116,7 @@ CFLAGS += $(CIFLAGS)
 ###################################################
 
 vpath %.c src
+vpath %.c src/codec2/src
 vpath %.a lib
 
 ROOT=$(shell pwd)
