@@ -106,7 +106,7 @@ struct CODEC2 * codec2_create(int mode)
     if (!((mode >= 0) && (mode <= CODEC2_MODE_WB))) {
         return NULL;
     }  
-
+    // 5824
     c2 = (struct CODEC2*)malloc(sizeof(struct CODEC2));
     if (c2 == NULL)
 	return NULL;
@@ -119,90 +119,93 @@ struct CODEC2 * codec2_create(int mode)
     c2->Fs = c2->c2const.Fs;
     int n_samp = c2->n_samp = c2->c2const.n_samp;
     int m_pitch = c2->m_pitch = c2->c2const.m_pitch;
-
+    // 640
     c2->Pn = (float*)malloc(2*n_samp*sizeof(float));
     if (c2->Pn == NULL) {
 	return NULL;
     }
+    // 640
     c2->Sn_ = (float*)malloc(2*n_samp*sizeof(float));
     if (c2->Sn_ == NULL) {
 	return NULL;
     }
+    // 1,280
     c2->w = (float*)malloc(m_pitch*sizeof(float));
     if (c2->w == NULL) {
 	return NULL;
     }
-    // crashes here
+     return c2;
+    // crashes here  // bytes 1,280
     c2->Sn = (float*)malloc(m_pitch*sizeof(float));
     if (c2->Sn == NULL) {
 	return NULL;
     }
 
-//     for(i=0; i<m_pitch; i++)
-// 	c2->Sn[i] = 1.0;
-//     c2->hpf_states[0] = c2->hpf_states[1] = 0.0;
-//     for(i=0; i<2*n_samp; i++)
-// 	c2->Sn_[i] = 0;
-//     c2->fft_fwd_cfg = codec2_fft_alloc(FFT_ENC, 0, NULL, NULL);
-//     c2->fftr_fwd_cfg = codec2_fftr_alloc(FFT_ENC, 0, NULL, NULL);
-//     make_analysis_window(&c2->c2const, c2->fft_fwd_cfg, c2->w,c2->W);
-//     make_synthesis_window(&c2->c2const, c2->Pn);
-//     c2->fftr_inv_cfg = codec2_fftr_alloc(FFT_DEC, 1, NULL, NULL);
-//     quantise_init();
-//     c2->prev_f0_enc = 1/P_MAX_S;
-//     c2->bg_est = 0.0;
-//     c2->ex_phase = 0.0;
+    for(i=0; i<m_pitch; i++)
+	c2->Sn[i] = 1.0;
+    c2->hpf_states[0] = c2->hpf_states[1] = 0.0;
+    for(i=0; i<2*n_samp; i++)
+	c2->Sn_[i] = 0;
+    c2->fft_fwd_cfg = codec2_fft_alloc(FFT_ENC, 0, NULL, NULL);
+    c2->fftr_fwd_cfg = codec2_fftr_alloc(FFT_ENC, 0, NULL, NULL);
+    make_analysis_window(&c2->c2const, c2->fft_fwd_cfg, c2->w,c2->W);
+    make_synthesis_window(&c2->c2const, c2->Pn);
+    c2->fftr_inv_cfg = codec2_fftr_alloc(FFT_DEC, 1, NULL, NULL);
+    quantise_init();
+    c2->prev_f0_enc = 1/P_MAX_S;
+    c2->bg_est = 0.0;
+    c2->ex_phase = 0.0;
 
-//     for(l=1; l<=MAX_AMP; l++)
-// 	c2->prev_model_dec.A[l] = 0.0;
-//     c2->prev_model_dec.Wo = TWO_PI/c2->c2const.p_max;
-//     c2->prev_model_dec.L = PI/c2->prev_model_dec.Wo;
-//     c2->prev_model_dec.voiced = 0;
+    for(l=1; l<=MAX_AMP; l++)
+	c2->prev_model_dec.A[l] = 0.0;
+    c2->prev_model_dec.Wo = TWO_PI/c2->c2const.p_max;
+    c2->prev_model_dec.L = PI/c2->prev_model_dec.Wo;
+    c2->prev_model_dec.voiced = 0;
 
-//     for(i=0; i<LPC_ORD; i++) {
-//       c2->prev_lsps_dec[i] = i*PI/(LPC_ORD+1);
-//     }
-//     c2->prev_e_dec = 1;
+    for(i=0; i<LPC_ORD; i++) {
+      c2->prev_lsps_dec[i] = i*PI/(LPC_ORD+1);
+    }
+    c2->prev_e_dec = 1;
 
-//     c2->nlp = nlp_create(&c2->c2const);
-//     if (c2->nlp == NULL) {
-// 	return NULL;
-//     }
+    c2->nlp = nlp_create(&c2->c2const);
+    if (c2->nlp == NULL) {
+	return NULL;
+    }
 
-//     if (mode == CODEC2_MODE_700B)
-//         c2->gray = 0;             // natural binary better for trellis decoding (hopefully added later)
-//     else
-//         c2->gray = 1;
+    if (mode == CODEC2_MODE_700B)
+        c2->gray = 0;             // natural binary better for trellis decoding (hopefully added later)
+    else
+        c2->gray = 1;
 
-//     c2->lpc_pf = 1; c2->bass_boost = 1; c2->beta = LPCPF_BETA; c2->gamma = LPCPF_GAMMA;
+    c2->lpc_pf = 1; c2->bass_boost = 1; c2->beta = LPCPF_BETA; c2->gamma = LPCPF_GAMMA;
 
-//     c2->xq_enc[0] = c2->xq_enc[1] = 0.0;
-//     c2->xq_dec[0] = c2->xq_dec[1] = 0.0;
+    c2->xq_enc[0] = c2->xq_enc[1] = 0.0;
+    c2->xq_dec[0] = c2->xq_dec[1] = 0.0;
 
-//     c2->smoothing = 0;
+    c2->smoothing = 0;
 
-//     c2->bpf_buf = (float*)malloc(sizeof(float)*(BPF_N+4*c2->n_samp));
-//     assert(c2->bpf_buf != NULL);
-//     for(i=0; i<BPF_N+4*c2->n_samp; i++)
-//         c2->bpf_buf[i] = 0.0;
+    c2->bpf_buf = (float*)malloc(sizeof(float)*(BPF_N+4*c2->n_samp));
+    assert(c2->bpf_buf != NULL);
+    for(i=0; i<BPF_N+4*c2->n_samp; i++)
+        c2->bpf_buf[i] = 0.0;
 
-//     c2->softdec = NULL;
+    c2->softdec = NULL;
 
-// #ifndef CORTEX_M4
-//     /* newamp1 initialisation */
+#ifndef CORTEX_M4
+    /* newamp1 initialisation */
 
-//     if (c2->mode == CODEC2_MODE_700C) {
-//         mel_sample_freqs_kHz(c2->rate_K_sample_freqs_kHz, NEWAMP1_K, ftomel(200.0), ftomel(3700.0) );
-//         int k;
-//         for(k=0; k<NEWAMP1_K; k++) {
-//             c2->prev_rate_K_vec_[k] = 0.0;
-//         }
-//         c2->Wo_left = 0.0;
-//         c2->voicing_left = 0;;
-//         c2->phase_fft_fwd_cfg = codec2_fft_alloc(NEWAMP1_PHASE_NFFT, 0, NULL, NULL);
-//         c2->phase_fft_inv_cfg = codec2_fft_alloc(NEWAMP1_PHASE_NFFT, 1, NULL, NULL);
-//     }
-// #endif
+    if (c2->mode == CODEC2_MODE_700C) {
+        mel_sample_freqs_kHz(c2->rate_K_sample_freqs_kHz, NEWAMP1_K, ftomel(200.0), ftomel(3700.0) );
+        int k;
+        for(k=0; k<NEWAMP1_K; k++) {
+            c2->prev_rate_K_vec_[k] = 0.0;
+        }
+        c2->Wo_left = 0.0;
+        c2->voicing_left = 0;;
+        c2->phase_fft_fwd_cfg = codec2_fft_alloc(NEWAMP1_PHASE_NFFT, 0, NULL, NULL);
+        c2->phase_fft_inv_cfg = codec2_fft_alloc(NEWAMP1_PHASE_NFFT, 1, NULL, NULL);
+    }
+#endif
 
     return c2;
 }

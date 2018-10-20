@@ -71,10 +71,10 @@ struct CODEC2 {
 
     /* newamp1 states */
 
-    float          rate_K_sample_freqs_kHz[NEWAMP1_K];
-    float          prev_rate_K_vec_[NEWAMP1_K];
-    float          Wo_left;
-    int            voicing_left;
+    // float          rate_K_sample_freqs_kHz[NEWAMP1_K];
+    // float          prev_rate_K_vec_[NEWAMP1_K];
+    // float          Wo_left;
+    // int            voicing_left;
     codec2_fft_cfg phase_fft_fwd_cfg;
     codec2_fft_cfg phase_fft_inv_cfg;      
 };
