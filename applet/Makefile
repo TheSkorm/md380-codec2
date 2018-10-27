@@ -105,7 +105,7 @@ GIT_VERSION := $(shell git describe --dirty --always --tags)
 LINKSCRIPT=applet_$(SRCVERSION).ld
 
 CFLAGS += -std=gnu99 -g -O2 -Wall -T$(LINKSCRIPT)
-CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -D CORTEX_M4
+CFLAGS += -mlittle-endian -mthumb -mcpu=cortex-m4 -mthumb-interwork -D CORTEX_M4 -D ARM_MATH_CM4 -D__EMBEDDED__ -fsingle-precision-constant -Wdouble-promotion -fdata-sections -ffunction-sections  -D__FPU_PRESENT=1 -D__FPU_USED=1
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nano.specs -specs=nosys.specs --specs=rdimon.specs
 CFLAGS += -fshort-wchar
 ifdef MKLISTING
